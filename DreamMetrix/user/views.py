@@ -54,6 +54,7 @@ class StudentCreate(
 
     def delete(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
+student_create = StudentCreate.as_view()
 
 
 class TeacherCreate(
@@ -93,6 +94,7 @@ class TeacherCreate(
 
     def delete(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
+teacher_create = TeacherCreate.as_view()
 
 
 class StudentProfileUpdate(mixins.UpdateModelMixin, mixins.DestroyModelMixin, APIView):
@@ -106,6 +108,7 @@ class StudentProfileUpdate(mixins.UpdateModelMixin, mixins.DestroyModelMixin, AP
 
     def destroy(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
+student_profile = StudentProfileUpdate.as_view()
 
 
 class TeacherProfileUpdate(mixins.UpdateModelMixin, APIView):
@@ -118,6 +121,7 @@ class TeacherProfileUpdate(mixins.UpdateModelMixin, APIView):
 
     def destroy(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
+teacher_profile = TeacherProfileUpdate.as_view()
 
 class UserLogin(APIView):
     def post(self, request, **kwargs):
@@ -129,3 +133,4 @@ class UserLogin(APIView):
             token, _ = Token.objects.get_or_create(user=user)
             return Response({'email': user.email, 'token': token.key}, status=status.HTTP_200_OK)
         return Response({"message": "wrong credentials"}, status=status.HTTP_400_BAD_REQUEST)
+login_view = UserLogin.as_view()

@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     "message.apps.MessageConfig",
 
     'rest_framework',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    "api.apps.ApiConfig"
 ]
 
 
