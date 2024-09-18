@@ -8,13 +8,12 @@ from user.models import User
 
 class StudentProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    # TODOD
+    photo = models.ImageField(upload_to='Profile/student/photo/', blank=True)
 
 
 
 class ParentProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    children = models.ManyToManyField(User)
+    children = models.ManyToManyField(User, related_name='parents', blank=True)
 
 
-    

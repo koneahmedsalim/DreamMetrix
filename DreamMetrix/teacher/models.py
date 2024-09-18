@@ -7,5 +7,5 @@ from user.models import User
 
 
 class TeacherProfile(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    # TODO
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='teacher_profile')
+    photo = models.ImageField(upload_to='Profile/teacher/photo', blank=True)
