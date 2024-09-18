@@ -38,6 +38,7 @@ class ListCreateAssignment(
 
     def delete(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
+assignment_view = ListCreateAssignment.as_view()
 
 
 

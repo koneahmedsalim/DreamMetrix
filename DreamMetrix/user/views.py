@@ -108,7 +108,7 @@ class StudentProfileUpdate(mixins.UpdateModelMixin, mixins.DestroyModelMixin, AP
 
     def destroy(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
-student_profile = StudentProfileUpdate.as_view()
+student_profile_view = StudentProfileUpdate.as_view()
 
 
 class TeacherProfileUpdate(mixins.UpdateModelMixin, APIView):
@@ -121,7 +121,7 @@ class TeacherProfileUpdate(mixins.UpdateModelMixin, APIView):
 
     def destroy(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
-teacher_profile = TeacherProfileUpdate.as_view()
+teacher_profile_view = TeacherProfileUpdate.as_view()
 
 class UserLogin(APIView):
     def post(self, request, **kwargs):
